@@ -1,5 +1,6 @@
 [
     {
+        "flightId": 1,
         "origin": "Kiev",
         "destination": "Xique Xique-BA",
         "seats": [
@@ -18,6 +19,7 @@
         ]
     },
     {
+        "flightId": 2,
         "origin": "Xique Xique-BA",
         "destination": "Recife",
         "seats": [
@@ -36,6 +38,7 @@
         ]
     },
     {
+        "flightId": 3,
         "origin": "Xique Xique-BA",
         "destination": "Feira de Santana",
         "seats": [
@@ -54,6 +57,7 @@
         ]
     },
     {
+        "flightId": 4,
         "origin": "Xique Xique-BA",
         "destination": "Brasilia",
         "seats": [
@@ -72,6 +76,7 @@
         ]
     },
     {
+        "flightId": 5,
         "origin": "Xique Xique-BA",
         "destination": "São Paulo",
         "seats": [
@@ -90,6 +95,7 @@
         ]
     },
     {
+        "flightId": 6,
         "origin": "Xique Xique-BA",
         "destination": "Rio de Janeiro",
         "seats": [
@@ -108,6 +114,7 @@
         ]
     },
     {
+        "flightId": 7,
         "origin": "Xique Xique-BA",
         "destination": "Curitiba",
         "seats": [
@@ -126,6 +133,7 @@
         ]
     },
     {
+        "flightId": 8,
         "origin": "Recife",
         "destination": "Xique Xique-BA",
         "seats": [
@@ -144,6 +152,7 @@
         ]
     },
     {
+        "flightId": 9,
         "origin": "Recife",
         "destination": "Feira de Santana",
         "seats": [
@@ -162,170 +171,9 @@
         ]
     },
     {
+        "flightId": 10,
         "origin": "Feira de Santana",
         "destination": "Recife",
-        "seats": [
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" }
-        ]
-    },
-    {
-        "origin": "Feira de Santana",
-        "destination": "Xique Xique-BA",
-        "seats": [
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" }
-        ]
-    },
-    {
-        "origin": "Salvador",
-        "destination": "Feira de Santana",
-        "seats": [
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" }
-        ]
-    },
-    {
-        "origin": "Salvador",
-        "destination": "Manaus",
-        "seats": [
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" }
-        ]
-    },
-    {
-        "origin": "Manaus",
-        "destination": "Palmas",
-        "seats": [
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" }
-        ]
-    },
-    {
-        "origin": "Manaus",
-        "destination": "Rio Branco",
-        "seats": [
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" }
-        ]
-    },
-    {
-        "origin": "Palmas",
-        "destination": "Rio Branco",
-        "seats": [
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" }
-        ]
-    },
-    {
-        "origin": "Palmas",
-        "destination": "Manaus",
-        "seats": [
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" }
-        ]
-    },
-    {
-        "origin": "Rio Branco",
-        "destination": "Manaus",
-        "seats": [
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" },
-            { "is_reserved": false, "customer_id": "" }
-        ]
-    },
-    {
-        "origin": "Rio Branco",
-        "destination": "Palmas",
         "seats": [
             { "is_reserved": false, "customer_id": "" },
             { "is_reserved": false, "customer_id": "" },
