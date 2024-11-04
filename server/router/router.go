@@ -1,11 +1,12 @@
 package router
 
-import(
-	"github.com/gin-gonic/gin"
+import (
+    "fmt"
+    "github.com/gin-gonic/gin"
 )
 
-func Initialize() {
-	r := gin.Default()
-	initializeRoutes(r)
-	r.Run(":8080") // listen and serve on 0.0.0.0:8080
+func Initialize(externalCompanies []string, port int) {
+    r := gin.Default()
+    InitializeRoutes(r, externalCompanies)
+    r.Run(fmt.Sprintf(":%d", port)) // Escuta na porta configurada
 }
