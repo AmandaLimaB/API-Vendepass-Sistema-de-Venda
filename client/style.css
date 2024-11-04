@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+}
+
+body {
+  background: black;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: greenyellow
+}
+
+a:active {
+  color: greenyellow
+}
+
+ul {
+  list-style: none;
+}
+
+nav {
+  max-width: 1120px;
+  padding: 1.5rem 10rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logo{
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.menu{
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  color: greenyellow;
+}
+
+.login {
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
