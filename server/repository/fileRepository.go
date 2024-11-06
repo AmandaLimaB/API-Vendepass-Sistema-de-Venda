@@ -179,66 +179,56 @@ func LoadConfig() models.Config {
 
 
 func ReserveSeat(flightId int, seatID int, cpf string, externalCompanies []string) error {
-	// Carregar os voos locais
 	flights, err := LoadFlights()
 	if err != nil {
 		return err
 	}
 
-	// Tentar reservar localmente
-	var flight *models.Flight
-	for i := range flights {
-		if flights[i].FlightId == flightId {
-			flight = &flights[i]
-			break
+	// Determina a companhia pelo prefixo do FlightId
+	companyIndex := flightId / 1000 // Supondo que cada prefixo tem 1000 IDs
+	if companyIndex >= 0 && companyIndex < len(externalCompanies) {
+		companyURL := externalCompanies[companyIndex]
+
+		// Se a companhia é local (FlightId começa com 0), tenta reservar localmente
+		if companyIndex == 0 {
+			for i := range flights {
+				if flights[i].FlightId == flightId {
+					// Verifica se o assento já está reservado
+					if seatID < 0 || seatID >= len(flights[i].Seats) || flights[i].Seats[seatID].IsReserved {
+						return errors.New("reserva não realizada") // Assento inválido ou já reservado
+					}
+
+					// Realiza a reserva
+					flights[i].Seats[seatID].IsReserved = true
+					flights[i].Seats[seatID].CustomerID = cpf
+
+					// Salva a atualização
+					return SaveFlights(flights)
+				}
+			}
+			return errors.New("voo não encontrado")
 		}
-	}
 
-	// Se o voo foi encontrado localmente
-	if flight != nil {
-		// Verificar e reservar assento
-		if seatID < 0 || seatID >= len(flight.Seats) || flight.Seats[seatID].IsReserved {
-			return errors.New("reserva não realizada") // Mensagem genérica
-		}
-		flight.Seats[seatID].IsReserved = true
-		flight.Seats[seatID].CustomerID = cpf
+		// Se a companhia é externa, faz a requisição de reserva
+		reqBody, _ := json.Marshal(models.ReserveSeatRequest{
+			FlightId: flightId,
+			SeatID:   seatID,
+			CPF:      cpf,
+		})
 
-		// Salvar a atualização local
-		if err := SaveFlights(flights); err != nil {
-			return err
-		}
-		return nil // Reserva local bem-sucedida
-	}
-
-	// Se o voo não foi encontrado localmente, tentar nas companhias externas
-	reqBody, _ := json.Marshal(models.ReserveSeatRequest{
-		FlightId: flightId,
-		SeatID:   seatID,
-		CPF:      cpf,
-	})
-
-	// Configurar cliente HTTP com timeout para evitar espera longa
-	client := http.Client{Timeout: 5 * time.Second}
-	for _, companyURL := range externalCompanies {
+		client := http.Client{Timeout: 5 * time.Second}
 		resp, err := client.Post(fmt.Sprintf("%s/reserve-seat", companyURL), "application/json", bytes.NewBuffer(reqBody))
 		if err != nil {
-			fmt.Printf("Erro ao tentar reserva na companhia %s: %v\n", companyURL, err)
-			continue // Ignorar erro e tentar a próxima companhia
+			fmt.Printf("Erro ao tentar reservar na companhia %s: %v\n", companyURL, err)
+			return errors.New("reserva não realizada")
 		}
 		defer resp.Body.Close()
 
-		// Verificar resposta da companhia externa
 		if resp.StatusCode == http.StatusOK {
-			return nil // Reserva realizada com sucesso em uma companhia externa
-		} else if resp.StatusCode == http.StatusConflict {
-			// Se o assento estiver ocupado, retornar a mensagem genérica
-			continue
-		} else if resp.StatusCode == http.StatusNotFound {
-			// Se o voo não for encontrado, continue tentando as próximas companhias
-			continue
+			return nil // Reserva bem-sucedida em companhia externa
 		}
+		return errors.New("reserva não realizada")
 	}
 
-	// Se não foi possível reservar em nenhuma companhia
-	return errors.New("reserva não realizada") // Mensagem genérica
+	return errors.New("companhia não encontrada para o voo")
 }
