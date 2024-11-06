@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// ReserveSeatHandler é o handler para reservar um assento
 func ReserveSeatHandler(c *gin.Context, externalCompanies []string) {
 	var req models.ReserveSeatRequest
 
@@ -17,10 +18,10 @@ func ReserveSeatHandler(c *gin.Context, externalCompanies []string) {
 		return
 	}
 
-	// Realiza a reserva localmente ou em outra companhia
+	// Realiza a reserva usando a lógica de prefixo do FlightId
 	err := repository.ReserveSeat(req.FlightId, req.SeatID, req.CPF, externalCompanies)
 	if err != nil {
-		c.JSON(http.StatusConflict, gin.H{"message": "Não foi possível reservar o assento"})
+		c.JSON(http.StatusConflict, gin.H{"message": err.Error()})
 		return
 	}
 
