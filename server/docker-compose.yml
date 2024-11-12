@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  servidor_a:
+    build: .
+    container_name: servidor_a
+    environment:
+      - SERVER_PORT=8080  # Porta específica para este servidor
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  servidor_b:
+    build: .
+    container_name: servidor_b
+    environment:
+      - SERVER_PORT=8081  # Porta específica para este servidor
+    ports:
+      - "8081:8081"
+    networks:
+      - app-network
+
+  servidor_c:
+    build: .
+    container_name: servidor_c
+    environment:
+      - SERVER_PORT=8082  # Porta específica para este servidor
+    ports:
+      - "8082:8082"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
