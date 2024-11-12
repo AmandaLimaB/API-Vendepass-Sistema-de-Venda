@@ -1,0 +1,21 @@
+# Use uma imagem oficial do Go como base
+FROM golang:1.21-alpine
+
+# Cria e define o diretório de trabalho no container
+WORKDIR /app
+
+# Copia os arquivos go.mod e go.sum e instala as dependências
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Copia todo o código para o diretório de trabalho no container
+COPY . .
+
+# Compila o aplicativo Go
+RUN go build -o server main.go
+
+# Expõe a porta que o serviço usará (ajuste conforme a porta que seu serviço escuta)
+EXPOSE 8080
+
+# Comando para rodar o serviço
+CMD ["./server"]
