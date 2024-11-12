@@ -147,7 +147,7 @@ Para resolver essa limitação, deve-se implementar um mecanismo de **detecção
 Essas melhorias são fundamentais para garantir a **resiliência e disponibilidade do sistema** em cenários distribuídos e serão consideradas como parte do desenvolvimento futuro.
 
 ### Confiabilidade da Solução
-O sistema foi projetado para continuar funcional mesmo quando algum servidor de companhia aérea fica temporariamente indisponível. Nesse caso, o token é passado automaticamente ao próximo servidor, permitindo que as operações das outras companhias continuem. Isso aumenta a **resiliência** e a **disponibilidade** do sistema.
+O sistema foi projetado para continuar funcional mesmo quando algum servidor de companhia aérea fica temporariamente indisponível. Porém, por conta de como o token ring foi implementado, a reserva de assentos fica indisponível em qualquer companhia, mas as operações de listagem de vôos e assentos, cancelamento de assentos (de empresas online) e criação de usuários ainda estão disponíveis.
 
 ### Emprego do Docker
 O uso de contêineres **Docker** possibilitou o desenvolvimento de um ambiente distribuído isolado, no qual cada servidor de companhia aérea opera em seu próprio contêiner. Essa configuração facilita a simulação de um sistema distribuído real e permite a escalabilidade, já que novos servidores podem ser adicionados rapidamente. Além disso, o **Docker Compose** simplifica a orquestração dos contêineres e o gerenciamento do ambiente de desenvolvimento e testes.
@@ -191,7 +191,7 @@ Os testes ajudam a identificar possíveis problemas de concorrência, falhas de 
 
 ## 🏆 Conclusão
 
-Este projeto demonstra a viabilidade de um sistema de reservas de passagens aéreas distribuído utilizando Docker e um protocolo de comunicação distribuído. A implementação do Token Ring e a arquitetura modular em Golang asseguram um controle de concorrência eficaz e uma alta resiliência, tornando o sistema escalável e confiável.
+Este projeto demonstra a viabilidade de um sistema de reservas de passagens aéreas distribuído utilizando Docker e um protocolo de comunicação distribuído. A implementação do Token Ring e a arquitetura modular em Golang asseguram um controle de concorrência eficaz.
 
 ---
 
