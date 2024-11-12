@@ -215,6 +215,7 @@ func ReserveSeat(flightId int, seatID int, cpf string, externalCompanies []strin
 			SeatID:   seatID,
 			CPF:      cpf,
 		})
+		
 
 		client := http.Client{Timeout: 5 * time.Second}
 		resp, err := client.Post(fmt.Sprintf("%s/reserve-seat", companyURL), "application/json", bytes.NewBuffer(reqBody))
